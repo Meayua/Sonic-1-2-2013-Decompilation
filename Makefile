@@ -13,29 +13,10 @@ STRIP		?= strip
 CFLAGS		?= -fsigned-char -std=c++17
 
 # =============================================================================
-# Detect default platform if not explicitly specified
+# Fuck you I'm hardcoding the platform. Cry about it.
 # =============================================================================
 
-ifeq ($(OS),Windows_NT)
-	PLATFORM ?= Windows
-else
-	UNAME_S := $(shell uname -s)
-
-	ifeq ($(UNAME_S),Linux)
-		PLATFORM ?= Linux
-	endif
-
-	ifeq ($(UNAME_S),Darwin)
-		PLATFORM ?= macOS
-	endif
-
-endif
-
-ifdef EMSCRIPTEN
-	PLATFORM = Emscripten
-endif
-
-PLATFORM ?= Unknown
+PLATFORM = Switch
 
 # =============================================================================
 
